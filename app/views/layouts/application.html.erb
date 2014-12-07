@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Knowyourteam</title>
+  <meta charset="utf-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inquirator</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag bootstrap_css, bootstrap_theme_css, :application %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= navbar inverted: true, position: :top do %>
+    <%= horizontal do %>
+      <%= nav do %>
+        
+      <% end %>
+      <%= button_to 'Sign out', destroy_user_session_path, form_class: 'navbar-right', class: 'btn-link', method: :delete %>
+    <% end %>
+  <% end if user_signed_in? %>
+  <div class='container'>
+    <%- flash.map do |priority, message| %>
+      <%= alert_box message, priority: priority %>
+    <% end %>
+    <%= content_for?(:container) ? yield(:container) : yield %>
+  </div>
 </body>
 </html>
