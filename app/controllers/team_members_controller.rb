@@ -22,6 +22,6 @@ class TeamMembersController < ApplicationController
   end
   
   private def team_member_params
-    params[:team_member].permit(:name, :email, :title, :team_id)
+    params.require(:team_member).permit(:name, :email, :title, :team_id)
   end
 end

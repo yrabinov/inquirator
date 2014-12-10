@@ -21,4 +21,15 @@ class QuestionQueue < ActiveRecord::Base
   def next_question
     questions_ordered.first.text rescue ""
   end
+  
+  def question_order
+    questions_ordered.pluck(:id).join ','
+  end
+  
+  def question_order=(value)
+    question_ids_in_order = value.split ','
+    question_ids_in_order.each_with_index do |question_id, idx|
+      Question.find(question_id).update_attribute(:position, idx) #TODO: do this in one query; we'll need to save the queries later.
+    end
+  end
 end

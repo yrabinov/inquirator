@@ -1,0 +1,7 @@
+<%= form_for question, layout: :horizontal do |f| %>
+  <%= f.hidden_field :question_queue_id %>
+  <%= f.hidden_field :position %>
+  <%= f.text_area :text, label:"Question Text" %>
+  <%= f.text_area :responses_field, label: "Available Responses", placeholder:"One per line. Leave blank if you don't need them."%>
+  <%= f.submit %>
+<% end %>

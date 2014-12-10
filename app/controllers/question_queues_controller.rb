@@ -9,6 +9,19 @@ class QuestionQueuesController < ApplicationController
   
   def edit
     @question_queue = QuestionQueue.find params[:id]
-    @question = @question_queue.questions.new
+    @question = @question_queue.questions.new(question_queue_id:@question_queue.id)
+  end
+  
+  def update
+    @question_queue = QuestionQueue.find params[:id]
+    if @question_queue.update_attributes(question_queue_params)
+      render status: :ok
+    else
+      render status: :unprocessable_entity
+    end
+  end
+  
+  private def question_queue_params
+    params.require(:question_queue).permit(:question_queue_question_order)
   end
 end

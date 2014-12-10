@@ -1,0 +1,15 @@
+<h2 class='text-center'><%= @question_queue.category.titleize %> Questions</h2>
+<p>Add a new question to this queue:</p>
+<%= render partial:'shared/question_form', locals:{question:@question} %>
+<table class='table table-hover'>
+  <tbody id="question_queue_questions" data-id="<%= @question_queue.id %>">
+    <% @question_queue.questions_ordered.each do |question| %>
+      <tr data-question-id="<%= question.id %>">
+        <td><%= question.text %></td>
+        <td><%= link_to "edit", edit_question_path(question) %></td>
+        <td><%= button_to "delete", questions_path(question), method: :destroy, class:'btn btn-small btn-link' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<input type="hidden" id="question_queue_question_order" value="<%= @question_queue.question_order %>"></input>

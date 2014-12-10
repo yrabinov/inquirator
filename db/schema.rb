@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20141210020445) do
     t.integer  "question_queue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "responses",         array: true
+    t.string   "responses",         default: [], array: true
   end
 
   add_index "questions", ["question_queue_id"], name: "index_questions_on_question_queue_id", using: :btree
