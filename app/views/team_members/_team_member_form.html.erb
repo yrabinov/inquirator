@@ -1,0 +1,7 @@
+<%= form_for team_member, layout: :inline do |f| %>
+  <%= f.hidden_field :team_id, value: team.id %>
+  <%= f.text_field :name, placeholder:"Name", label:false %>
+  <%= f.text_field :email, placeholder:"Email address", label:false %>
+  <%= f.text_field :title, placeholder:"Title", label:false %>
+  <%= f.submit %>
+<% end %>

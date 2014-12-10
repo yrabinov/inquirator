@@ -11,10 +11,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207212726) do
+ActiveRecord::Schema.define(version: 20141210020445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "inquiries", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "team_member_id"
+    t.string   "response_choice"
+    t.text     "extended_response"
+    t.string   "response_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "inquiries", ["question_id"], name: "index_inquiries_on_question_id", using: :btree
+  add_index "inquiries", ["team_member_id"], name: "index_inquiries_on_team_member_id", using: :btree
+
+  create_table "question_queues", force: true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "day"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "question_queues", ["team_id"], name: "index_question_queues_on_team_id", using: :btree
+
+  create_table "questions", force: true do |t|
+    t.text     "text"
+    t.string   "category"
+    t.integer  "position"
+    t.integer  "question_queue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "responses",         array: true
+  end
+
+  add_index "questions", ["question_queue_id"], name: "index_questions_on_question_queue_id", using: :btree
+
+  create_table "team_members", force: true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "email"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -29,6 +85,7 @@ ActiveRecord::Schema.define(version: 20141207212726) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

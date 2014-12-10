@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question_id: 
+  team_member_id: 
+  response_choice: MyString
+  extended_response: MyText
+  response_token: MyString
+
+two:
+  question_id: 
+  team_member_id: 
+  response_choice: MyString
+  extended_response: MyText
+  response_token: MyString

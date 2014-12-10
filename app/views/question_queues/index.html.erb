@@ -1,0 +1,32 @@
+<h2 class='text-center'>Upcoming Questions</h2>
+<%= panel_row column_class: 'col-sm-4 text-center' do %>
+  <%= panel do %>
+    <div class='panel-header'>Heartbeat Question</div>
+    <div class='panel-body'>
+      <p class='text-center'><%= @heartbeat_queue.next_question %></p>
+    </div>
+    <div class='panel-footer'>
+      <%= link_to "Edit this queue", question_queue_path(@heartbeat_queue) %>
+    </div>
+  <% end %>
+  
+  <%= panel do %>
+    <div class='panel-header'>Company Question</div>
+    <div class='panel-body'>
+      <p class='text-center'><%= @company_queue.next_question %></p>
+    </div>
+    <div class='panel-footer'>
+      <%= link_to "Edit this queue", question_queue_path(@heartbeat_queue) %>
+    </div>
+  <% end %>
+  
+  <%= panel do %>
+    <div class='panel-header'>Social Question</div>
+    <div class='panel-body'>
+      <p class='text-center'><%= @social_queue.next_question %></p>
+    </div>
+    <div class='panel-footer'>
+      <%= link_to "Edit this queue", question_queue_path(@heartbeat_queue) %>
+    </div>
+  <% end %>
+<% end %>

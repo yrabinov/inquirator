@@ -14,7 +14,9 @@
   <%= navbar inverted: true, position: :top do %>
     <%= horizontal do %>
       <%= nav do %>
-        
+        <%= link_to 'Questions', question_queues_path %>
+        <%= link_to 'My Team', team_members_path %>
+        <%= link_to 'Managers', users_path %>
       <% end %>
       <%= button_to 'Sign out', destroy_user_session_path, form_class: 'navbar-right', class: 'btn-link', method: :delete %>
     <% end %>

@@ -1,0 +1,17 @@
+<%= link_to "New User", new_user_path, class:'btn btn-lg btn-default text-right'%>
+<table class='table table-hover'>
+  <thead>
+    <th>email</th>
+    <th>name</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "edit", edit_user_path(user) %></td>
+        <td><%= button_to "delete", user_path(user), method: :destroy, class:'btn btn-small btn-link' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

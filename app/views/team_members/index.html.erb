@@ -1,0 +1,19 @@
+<h2>My Team</h2>
+<table class='table table-hover'>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Title</th>
+  </thead>
+  <tbody>
+    <% @team_members.each do |team_member| %>
+      <tr>
+        <td><%= team_member.name %></td>
+        <td><%= team_member.email %></td>
+        <td><%= team_member.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h3>Add a Team Member</h3>
+<%= render partial:"team_member_form", locals:{team_member:@team_member, team:@team}%>
