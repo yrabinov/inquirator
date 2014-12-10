@@ -43,6 +43,16 @@ Rails.application.configure do
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
+  
+  config.action_mailer.smtp_settings = {
+      :address   => ENV['SMTP_SERVER'],
+      :port      => 587,
+      :enable_starttls_auto => true,
+      :user_name => ENV["MANDRILL_USERNAME"],
+      :password  => ENV["MANDRILL_PASSWORD"],
+      :authentication => 'login',
+      :domain => ENV["DOMAIN"], # your domain to identify your server when connecting
+    }
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
