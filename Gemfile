@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.2'
-
+gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use SCSS for stylesheets
@@ -34,6 +34,8 @@ gem 'spring',        group: :development
 
 # Use unicorn as the app server
  gem 'unicorn', group: :production
+
+gem "letter_opener", :group => :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

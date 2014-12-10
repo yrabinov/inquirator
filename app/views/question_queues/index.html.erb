@@ -16,7 +16,7 @@
       <p class='text-center'><%= @company_queue.next_question %></p>
     </div>
     <div class='panel-footer'>
-      <%= link_to "Edit this queue", edit_question_queue_path(@heartbeat_queue) %>
+      <%= link_to "Edit this queue", edit_question_queue_path(@company_queue) %>
     </div>
   <% end %>
   
@@ -26,7 +26,7 @@
       <p class='text-center'><%= @social_queue.next_question %></p>
     </div>
     <div class='panel-footer'>
-      <%= link_to "Edit this queue", edit_question_queue_path(@heartbeat_queue) %>
+      <%= link_to "Edit this queue", edit_question_queue_path(@social_queue) %>
     </div>
   <% end %>
 <% end %>

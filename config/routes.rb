@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :team_members
   resources :question_queues
   resources :questions
+  resources :inquiries, only: :update
+  get 'respond' => 'responses#respond'
   root to: 'home#index'
 end

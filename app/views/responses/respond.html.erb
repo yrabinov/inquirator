@@ -1,0 +1,6 @@
+<%= form_for @inquiry, layout: :horizontal do |f| %>
+  <h1 class='text-center'><%= @inquiry.question.text %></h1>
+  <%= f.hidden_field :response_token %>
+  <%= f.text_area :extended_response, label:"Your Response" %>
+  <%= f.submit "Save Response"%>
+<% end %>

@@ -1,0 +1,10 @@
+Hi <%= @team_member.first_name %>,
+
+I've got a question for you.
+
+<%= @inquiry.question.text %>
+
+To respond, visit <%= response_url_for_inquiry(@inquiry) %>
+
+Thanks!
+<%= @inquiry.manager.first_name %>

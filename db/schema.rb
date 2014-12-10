@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210020445) do
+ActiveRecord::Schema.define(version: 20141210223858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20141210020445) do
     t.string   "response_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "responded",         default: false
   end
 
   add_index "inquiries", ["question_id"], name: "index_inquiries_on_question_id", using: :btree

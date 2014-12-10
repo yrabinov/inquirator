@@ -32,4 +32,13 @@ class QuestionQueue < ActiveRecord::Base
       Question.find(question_id).update_attribute(:position, idx) #TODO: do this in one query; we'll need to save the queries later.
     end
   end
+  
+  def email_current_question_to_team
+    return if questions_ordered.empty?
+    question = questions_ordered.first
+    team.team_members.each do |member|
+      inquiry = Inquiry.create(question_id:question.id,team_member_id:member.id)
+      InquiryMailer.question_email(inquiry).deliver
+    end
+  end
 end

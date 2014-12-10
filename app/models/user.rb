@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   def team
     Team.find_or_create_by(user_id:self.id)
   end
+  
+  def first_name
+    name.split(' ').first rescue "Your humble manager"
+  end
 end

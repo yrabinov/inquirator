@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style data-immutable="" type="text/css">
+/*<![CDATA[*/
+    @media screen and (max-width: 480px){h1{font-size:20px !important}div.padded{padding:10px !important}}
+    /*]]>*/
+    </style>
+    <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+  </head>
+  <body marginheight="0" topmargin="0" marginwidth="0" leftmargin="0" style="font-family:'Helvetica Neue', helvetica, arial, sans-serif;background:#ffffff;text-align:left;width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%">
+    <div class="padded" style="padding:20px">
+      <table style="background:#ffffff;margin:0;padding:0;border:0;width:100%;text-align:left;border-collapse:collapse;border-spacing:0;-premailer-cellspacing:0;-premailer-cellpadding:0;-premailer-width:100%">
+        <tr>
+          <td style="background:#ffffff;text-align:left;vertical-align:top;font-size:16px;line-height:19px;font-family:'Helvetica Neue', helvetica, arial, sans-serif;color:#000000">
+            <div class="new_question social">
+              <p style="font-size:16px;line-height:21px;color:#000000;margin:0 0 20px">
+                Hi <%= @team_member.first_name %>,
+              </p>
+              <p style="font-size:16px;line-height:21px;color:#000000;margin:0 0 15px">
+                I've got a question for you:
+              </p>
+              <p style="font-size:16px;line-height:21px;color:#000000;margin:0 0 20px">
+                <strong><%= @inquiry.question.text %></strong>
+              </p>
+              <table class="button" cellspacing="0" style='background:#ffffff;padding:0;border:0;text-align:left;-premailer-width:100%;-premailer-cellspacing:0;-premailer-cellpadding:0;border-spacing:0;width:auto;margin:0;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;border-collapse:separate'>
+                <tbody>
+                  <tr>
+                    <td style="background:#ffffff;text-align:left;vertical-align:top;font-family:'Helvetica Neue', helvetica, arial, sans-serif;background-color:#357ebd;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;color:#285e8e;font-size:18px;line-height:21px;padding:6px 12px">
+                      <a href="<%= response_url_for_inquiry(@inquiry) %>" style="color:#FFFFFF;display:block;text-decoration:none;text-align:center">Respond</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table><br />
+              <p style="font-size:16px;line-height:21px;color:#000000;margin:0 0 20px">
+                Thanks!<br />
+                <%= @inquiry.manager.first_name %>
+              </p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
