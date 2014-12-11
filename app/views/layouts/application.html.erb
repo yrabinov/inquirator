@@ -13,6 +13,9 @@
 </head>
 <body>
   <%= navbar inverted: true, position: :top do %>
+    <%= vertical do %>
+      <%= link_to image_tag('logo.png', alt: 'Inquirator'), question_queues_path %>
+    <% end %>
     <%= horizontal do %>
       <%= nav do %>
         <%= link_to 'Questions', question_queues_path %>
