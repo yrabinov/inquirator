@@ -10,7 +10,7 @@
       <tr data-question-id="<%= question.id %>">
         <td><%= question.text %></td>
         <td><%= link_to "edit", edit_question_path(question) %></td>
-        <td><%= button_to "delete", questions_path(question), method: :destroy, class:'btn btn-small btn-link' %></td>
+        <td><%= button_to "delete", questions_path(question), method: :destroy, context: :link %></td>
       </tr>
     <% end %>
   </tbody>

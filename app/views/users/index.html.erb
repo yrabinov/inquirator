@@ -10,7 +10,7 @@
         <td><%= user.email %></td>
         <td><%= user.name %></td>
         <td><%= link_to "edit", edit_user_path(user) %></td>
-        <td><%= button_to "delete", user_path(user), method: :destroy, class:'btn btn-small btn-link' %></td>
+        <td><%= button_to "delete", user_path(user), method: :destroy, context: :link %></td>
       </tr>
     <% end %>
   </tbody>
