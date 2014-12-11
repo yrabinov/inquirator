@@ -36,6 +36,7 @@ gem 'spring',        group: :development
  gem 'unicorn', group: :production
 
 gem "letter_opener_web", :group => :development
+gem "rails_12factor", group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
