@@ -8,7 +8,7 @@
   <tbody>
     <% @team_members.each do |team_member| %>
       <tr>
-        <td><%= team_member.name %></td>
+        <td><img class="img-circle" src="<%= team_member.gravatar_url %>"></img><%= team_member.name %></td>
         <td><%= team_member.email %></td>
         <td><%= team_member.title %></td>
       </tr>
