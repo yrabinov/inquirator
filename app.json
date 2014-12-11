@@ -1,0 +1,7 @@
+{
+  "name": "Inquirator",
+  "description": "A feedback-gathering tool for managers who want to run their teams with agility",
+  "repository": "https://github.com/aharpole/inquirator",
+  "logo": "https://cdn.fullscreen.net/inquirator/inquirator-logo.png",
+  "keywords": ["employee feedback","rails"]
+}

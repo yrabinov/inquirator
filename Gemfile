@@ -35,7 +35,7 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
  gem 'unicorn', group: :production
 
-gem "letter_opener", :group => :development
+gem "letter_opener_web", :group => :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

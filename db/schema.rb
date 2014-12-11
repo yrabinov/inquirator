@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211014334) do
+ActiveRecord::Schema.define(version: 20141211055535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141211014334) do
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "last_question_id"
   end
 
   add_index "question_queues", ["team_id"], name: "index_question_queues_on_team_id", using: :btree

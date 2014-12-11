@@ -41,5 +41,19 @@ class QuestionQueue < ActiveRecord::Base
       InquiryMailer.question_email(inquiry).deliver
     end
     question.update_attribute(:question_queue_id,nil) unless category == "heartbeat"
+    self.update_attribute(:last_question_id,question.id)
+  end
+  
+  def last_question
+    Question.find last_question_id rescue nil
+  end
+  
+  def email_last_question_responses_to_team
+    return if last_question.blank?
+    team.team_members.each do |member|
+      next if member.email == team.user.email
+      InquiryMailer.responses_team(last_question,member,team.user.email).deliver
+    end
+    InquiryMailer.responses_manager(last_question,team.user,team.user.email).deliver
   end
 end

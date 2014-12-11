@@ -4,6 +4,7 @@ class Inquiry < ActiveRecord::Base
   before_create :set_response_token
   
   delegate :team, to: :team_member
+  scope :responded, ->{where responded:true}
   
   def set_response_token
     write_attribute(:response_token,SecureRandom.uuid)

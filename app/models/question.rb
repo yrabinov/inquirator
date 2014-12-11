@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   CATEGORIES = ["short_answer","fill_in_the_blank","multiple_choice"]
   belongs_to :question_queue
-  
+  has_many :inquiries
   validates :position, presence: true, on: :update
   around_create :set_default_position
   
