@@ -12,6 +12,6 @@ class InquiriesController < ApplicationController
   end
   
   private def inquiry_params
-    params.require(:inquiry).permit(:response_choice, :extended_response, :response_token)
+    params.require(:inquiry).permit(:response_choice, :extended_response, :response_token, :confidential)
   end
 end

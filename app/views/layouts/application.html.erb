@@ -19,7 +19,7 @@
         <%= link_to 'My Team', team_members_path %>
         <%= link_to 'Managers', users_path %>
       <% end %>
-      <%= button_to 'Sign out', destroy_user_session_path, form_class: 'navbar-right', class: 'btn-link', method: :delete %>
+      <%= button_to 'Sign out', destroy_user_session_path, form_class: 'navbar-right', context: :link, method: :delete %>
     <% end %>
   <% end if user_signed_in? %>
   <div class='container'>

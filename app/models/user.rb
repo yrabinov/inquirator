@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
   def first_name
     name.split(' ').first rescue "Your humble manager"
   end
+  
+  def email_hash
+    Digest::MD5.hexdigest email.downcase.strip
+  end
+  
+  def gravatar_url
+    "http://www.gravatar.com/avatar/#{email_hash}"
+  end
 end

@@ -24,6 +24,6 @@ class QuestionsController < ApplicationController
   end
   
   private def question_params
-    params.require(:question).permit(:question_queue_id,:position, :text, :responses_field)
+    params.require(:question).permit(:question_queue_id,:position, :text, :responses_field, :category)
   end
 end

@@ -40,5 +40,6 @@ class QuestionQueue < ActiveRecord::Base
       inquiry = Inquiry.create(question_id:question.id,team_member_id:member.id)
       InquiryMailer.question_email(inquiry).deliver
     end
+    question.update_attribute(:question_queue_id,nil) unless category == "heartbeat"
   end
 end

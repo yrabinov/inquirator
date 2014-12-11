@@ -1,6 +1,14 @@
 <%= form_for @inquiry, layout: :horizontal do |f| %>
   <h1 class='text-center'><%= @inquiry.question.text %></h1>
   <%= f.hidden_field :response_token %>
+  <%= f.text_field :response_choice if @inquiry.show_response_choice?%>
+  <% if @inquiry.show_response_buttons? %>
+    <% @inquiry.question.responses.each do |response| %>
+      <%= f.radio_button :response_choice, response, label: response%>
+    <% end %>
+  <% end %>
   <%= f.text_area :extended_response, label:"Your Response" %>
+  <p id='response_sharing_list'>We'll share your response in a couple of days with <%= @inquiry.other_team_members_list %>.</p>
+  <%= f.check_box :confidential, label:"Share only with #{@inquiry.manager.name}"%>
   <%= f.submit "Save Response"%>
 <% end %>

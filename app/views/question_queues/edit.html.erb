@@ -1,6 +1,9 @@
 <h2 class='text-center'><%= @question_queue.category.titleize %> Questions</h2>
 <p>Add a new question to this queue:</p>
 <%= render partial:'shared/question_form', locals:{question:@question} %>
+<% if @question_queue.category == "heartbeat" %>
+  <p>The heartbeat question is special in that it is repeated every week. To pick a new heartbeat question, move a new question to the top of the queue.</p>
+<% end %>
 <table class='table table-hover'>
   <tbody id="question_queue_questions" data-id="<%= @question_queue.id %>">
     <% @question_queue.questions_ordered.each do |question| %>
